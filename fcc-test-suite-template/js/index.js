@@ -26,3 +26,26 @@ INSTRUCTIONS:
 
 // Once you have read the above messages, you can delete all comments. 
 "use strict";
+
+const form = document.querySelector('#form');
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const emailInput = document.querySelector('#email');
+  const formData = new FormData();
+  formData.append('email', emailInput.value);
+  fetch('https://www.freecodecamp.com/email-submit', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Email submitted successfully!');
+      form.reset();
+    } else {
+      throw new Error('Error submitting email');
+    }
+  })
+  .catch(error => {
+    alert(error.message);
+  });
+});
