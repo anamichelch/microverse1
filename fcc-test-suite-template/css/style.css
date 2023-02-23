@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  /* Styles to apply when the screen width is less than or equal to 768px */
+  #nav-bar {
+    flex-direction: column;
+  }
+  .nav-link {
+    margin-bottom: 10px;
+  }
+}
